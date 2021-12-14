@@ -196,7 +196,9 @@ body {
 
     .location {
         display: flex;
-        justify-items: center;
-        align-items: center;
+        flex-direction: row;
+        justify-content: center;
+        align-items: baseline;
+        gap: 0.3rem;
     }
 }
