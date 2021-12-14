@@ -115,7 +115,7 @@ body {
         grid-column: 1;
         background: rgba(234, 234, 234, 0.4);
         border-radius: 1rem;
-        padding: 1rem;
+        padding: 1.125rem;
         min-width: 250px;
         max-width: 270px;
     }
@@ -125,7 +125,7 @@ body {
         grid-column: 1;
         background: rgba(234, 234, 234, 0.4);
         border-radius: 1rem;
-        padding: 1rem;
+        padding: 1.125rem;
     }
     
     .card2 {
@@ -133,7 +133,7 @@ body {
         grid-column: 1;
         background: rgba(234, 234, 234, 0.4);
         border-radius: 1rem;
-        padding: 1rem;
+        padding: 1.125rem;
     }
 
     .card3 {
@@ -141,7 +141,7 @@ body {
         grid-column: 1;
         background: rgba(234, 234, 234, 0.4);
         border-radius: 1rem;
-        padding: 1rem;
+        padding: 1.125rem;
     }
 
     .card4 {
@@ -149,7 +149,7 @@ body {
         grid-column: 1;
         background: rgba(234, 234, 234, 0.4);
         border-radius: 1rem;
-        padding: 1rem;
+        padding: 1.125rem;
     }
 
     .container {
