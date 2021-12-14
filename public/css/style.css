@@ -193,4 +193,8 @@ body {
         color:#EAEAEA;
         flex-direction: column;
     }
+
+    .location {
+        text-align: center;
+    }
 }
