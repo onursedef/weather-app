@@ -195,6 +195,7 @@ body {
     }
 
     .location {
-        text-align: center;
+        display: flex;
+        justify-items: center;
     }
 }
