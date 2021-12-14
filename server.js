@@ -33,7 +33,6 @@ app.get('/', async (req, res) => {
             const currTime = timezone().tz("Europe/Istanbul").format("MMM, DD hh:mm a");
             const yearNow = moment(Date.now()).format("YYYY");
             
-            
 
     function degreesToCardinalDirection(d) {
         d = d % 360;
@@ -100,7 +99,7 @@ app.get('/', async (req, res) => {
                 sunrise: sunrise,
                 sunset: sunset,
                 currTime: currTime,
-                copyright: '© '+ yearNow +', Onur Sedef. Tüm hakları saklıdır. ',
+                copyright: '© '+ yearNow +', Onur Sedef. Tüm hakları saklıdır. '
             });
         });
     } catch (err) {
