@@ -111,6 +111,6 @@ app.get('/', async (req, res) => {
     }
 })
 
-app.listen()
+app.listen(process.env.PORT)
 
-console.log(chalk.blue('[express] Server started!'))
+console.log(chalk.blue('[express] Server started at ' + process.env.PORT))
