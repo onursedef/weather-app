@@ -101,7 +101,7 @@ app.get('/', async (req, res) => {
                 sunrise: sunrise,
                 sunset: sunset,
                 currTime: currTime,
-                lastUpd: lastUpd
+                lastUpd: lastUpd,
             });
         });
     } catch (err) {
