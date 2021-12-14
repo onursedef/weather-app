@@ -1,40 +1,41 @@
-import express, { response } from 'express'
-import chalk from 'chalk'
-import dotenv from 'dotenv'
-import fetch from 'node-fetch'
-import moment from 'moment'
-import timezone from 'moment-timezone'
-dotenv.config()
+import express from 'express' // for sending api's data to front-end
+import chalk from 'chalk' // for fancy console prompts
+import dotenv from 'dotenv' // if you dont want other to see your api key set a environment variables
+import fetch from 'node-fetch' //fetching api
+import moment from 'moment' //turning times to string format and adjusting them
+import timezone from 'moment-timezone' // same purpose 
+dotenv.config() 
 
 const app = express()
 
-app.set('view engine', 'ejs')
+app.set('view engine', 'ejs') // setting view engine is important 
 
-app.use(express.static('public'))
+app.use(express.static('public')) // this allows you to use files in ./public so you can style your site etc.
 
-app.get('/', async (req, res) => {
+app.get('/', async (req, res) => { // sending api constantly to front-end
     let url = `http://api.openweathermap.org/data/2.5/weather?q=Istanbul&units=metric&appid=${process.env.API_KEY}`;
 
     try {
         await fetch(url)
         .then(res => res.json())
         .then(data => {
-            const city = data.name;
-            const description = data.weather[0].description;
-            const icon = `http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
-            const temp = data.main.temp;
-            const country = data.sys.country;
-            const humidity = data.main.humidity;
-            const windDeg = data.wind.deg;
-            const windDirection = degreesToCardinalDirection(windDeg);
-            const abrKPH = abrNumber(data.wind.speed * 3.6);
-            const sunrise = moment(new Date(data.sys.sunrise * 1000)).tz("Europe/Istanbul").format("LT"); 
-            const sunset = moment(new Date(data.sys.sunset * 1000)).tz("Europe/Istanbul").format("LT"); 
-            const currTime = timezone().tz("Europe/Istanbul").format("MMM, DD hh:mm a");
-            const yearNow = moment(Date.now()).format("YYYY");
+            const city = data.name; // Istanbul
+            const description = data.weather[0].description; // Broken cloud etc.
+            const icon = `http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`; // weather icon
+            const temp = data.main.temp; // 29.77777...
+            const country = data.sys.country; // Turkey
+            const humidity = data.main.humidity; // 87
+            const windDeg = data.wind.deg; // 384
+            const windDirection = degreesToCardinalDirection(windDeg);  // North-Nortwest
+            const abrKPH = abrNumber(data.wind.speed * 3.6); // 33.3 
+            const sunrise = moment(new Date(data.sys.sunrise * 1000)).tz("Europe/Istanbul").format("LT"); // 8:21 AM
+            const sunset = moment(new Date(data.sys.sunset * 1000)).tz("Europe/Istanbul").format("LT");  // 5:36 PM
+            const currTime = timezone().tz("Europe/Istanbul").format("MMM, DD hh:mm A"); // Current time in Istanbul
+            const yearNow = moment(Date.now()).format("YYYY"); // 2021 for copyright
             
 
-    function degreesToCardinalDirection(d) {
+    // Setting direction according to the wind degree
+    function degreesToCardinalDirection(d) { 
         d = d % 360;
 
         if (11.25 <= d && d < 33.75) {
@@ -72,6 +73,7 @@ app.get('/', async (req, res) => {
         }  
     }
 
+    // abbreviation of numbers like 3.33333 => 3.3
     function abrNumber(value){
         let newValue = value;
         const suffixes = ["", "K", "M", "B", "T"];
@@ -86,6 +88,7 @@ app.get('/', async (req, res) => {
         newValue += suffixes[suffixNum];
         return newValue;
     }
+            // posting all variables to index.ejs
             res.render('index', {
                 city: city,
                 desc: description,
@@ -109,6 +112,8 @@ app.get('/', async (req, res) => {
     }
 })
 
+// active port in localhost
 app.listen(process.env.PORT)
 
+// fancy console output
 console.log(chalk.blue('[express] Server started at ' + process.env.PORT))

@@ -56,7 +56,7 @@ body {
     justify-items: center;
 }
 
-.lastUpdate {
+.footer {
     display: flex;
     text-align: center;
     justify-content: center;
@@ -185,7 +185,7 @@ body {
         color: white;
     }
 
-    .lastUpdate {
+    .footer {
         display: flex;
         justify-content: center;
         align-items: center;
