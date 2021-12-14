@@ -2,7 +2,7 @@
 # Created by https://www.toptal.com/developers/gitignore/api/vs,dotenv,node
 # Edit at https://www.toptal.com/developers/gitignore?templates=vs,dotenv,node
 
-# training file
+# test file
 index.js
 
 ### dotenv ###
