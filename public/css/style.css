@@ -1,0 +1,142 @@
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&display=swap');
+
+body {
+    background: linear-gradient(90deg, #00DBDE 0%, #FC00FF 100%);
+    font-family: 'Syne', sans-serif;
+}
+
+.wrapper {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.125rem;
+    grid-template-rows: repeat(2, 1fr);
+    margin: auto;
+}
+
+.main-card {
+    grid-area: 1 / 1 / 3 / 2;
+    background: rgba(234, 234, 234, 0.4);
+    border-radius: 1rem;
+    padding: 2rem;
+    justify-items: center;
+    
+}
+
+.card1 {
+    grid-area: 1 / 2 / 2 / 3;
+    background: rgba(234, 234, 234, 0.4);
+    border-radius: 1rem;
+    padding: 2rem;
+}
+
+.card2 {
+    grid-area: 1 / 3 / 2 / 4;
+    background: rgba(234, 234, 234, 0.4);
+    border-radius: 1rem;
+    padding: 2rem;
+}
+
+.card3 {
+    grid-area: 2 / 3 / 3 / 4;
+    background: rgba(234, 234, 234, 0.4);
+    border-radius: 1rem;
+    padding: 2rem;
+}
+
+.card4 {
+    grid-area: 2 / 2 / 3 / 3;
+    background: rgba(234, 234, 234, 0.4);
+    border-radius: 1rem;
+    padding: 2rem;
+}
+
+.container {
+    display: flex;
+    align-content: center;
+    justify-items: center;
+}
+
+.lastUpdate {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color:#EAEAEA;
+}
+
+.img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.location {
+    display: flex;
+    flex-direction: row;
+    justify-self: start;
+    align-items: baseline;
+    gap: 0.4rem;
+}
+
+.h2 {
+    font-size: 30px;
+    font-weight: 600;
+}
+
+.h4 {
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.memorize {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+    align-items: center;
+    font-weight: 800;
+    color: white;
+    font-size: 30px;
+    gap: 1rem;
+}
+
+@media only screen and (max-width: 768px) {
+    .wrapper {
+        grid-template-rows: 2fr repeat(4, 1fr);
+        gap: 1rem;
+        grid-template-columns: 1fr;
+    }
+
+    .main-card {
+        grid-area: 3 / 1 / 4 / 2;
+        background: rgba(234, 234, 234, 0.4);
+        border-radius: 1rem;
+        padding: 1.5rem;
+    }
+
+    .card1 {
+        grid-area: 4 / 1 / 5 / 2;
+        background: rgba(234, 234, 234, 0.4);
+        border-radius: 1rem;
+        padding: 1.5rem;
+    }
+    
+    .card2 {
+        grid-area: 5 / 1 / 6 / 2;
+        background: rgba(234, 234, 234, 0.4);
+        border-radius: 1rem;
+        padding: 1.5rem;
+    }
+
+    .card4 {
+        grid-area: 1 / 1 / 2 / 2;
+        background: rgba(234, 234, 234, 0.4);
+        border-radius: 1rem;
+        padding: 1.5rem;
+    }
+
+    .card4 {
+        grid-area: 1 / 1 / 3 / 2;
+        background: rgba(234, 234, 234, 0.4);
+        border-radius: 1rem;
+        padding: 1.5rem;
+    }
+}
