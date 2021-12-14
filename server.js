@@ -26,11 +26,12 @@ app.get('/', async (req, res) => {
             const country = data.sys.country;
             const humidity = data.main.humidity;
             const windDeg = data.wind.deg;
-            const lastUpd = moment(new Date(data.dt * 1000 - (data.timezone * 1000))).format("DD/MM/YYYY hh:mm:ss a");
+            const date = new Date(data.dt * 1000 - (data.timezone * 1000));
+            const lastUpd = new Intl.DateTimeFormat('en-Us', {dateStyle: 'medium', timeStyle: 'short'}).format(date);
             const windDirection = degreesToCardinalDirection(windDeg);
             const abrKPH = abrNumber(data.wind.speed * 3.6);
-            const sunrise = moment(new Date(data.sys.sunrise * 1000)).format("LT"); //data.sys.sunrise
-            const sunset = moment(new Date(data.sys.sunset * 1000)).format("LT"); //data.sys.sunset
+            const sunrise = moment(new Date(data.sys.sunrise * 1000)).format("LT"); 
+            const sunset = moment(new Date(data.sys.sunset * 1000)).format("LT"); 
             const currTime = timezone().tz("Europe/Istanbul").format("MMM, DD hh:mm a");
             
             
@@ -97,7 +98,6 @@ app.get('/', async (req, res) => {
                 humidity: humidity,
                 windDir: windDirection,
                 windDeg: windDeg,
-                timezone: lastUpd,
                 sunrise: sunrise,
                 sunset: sunset,
                 currTime: currTime,
