@@ -28,8 +28,8 @@ app.get('/', async (req, res) => {
             const windDeg = data.wind.deg;
             const windDirection = degreesToCardinalDirection(windDeg);
             const abrKPH = abrNumber(data.wind.speed * 3.6);
-            const sunrise = moment(new Date(data.sys.sunrise * 1000)).format("LT"); 
-            const sunset = moment(new Date(data.sys.sunset * 1000)).format("LT"); 
+            const sunrise = moment(new Date(data.sys.sunrise * 1000)).tz("Europe/Istanbul").format("LT"); 
+            const sunset = moment(new Date(data.sys.sunset * 1000)).tz("Europe/Istanbul").format("LT"); 
             const currTime = timezone().tz("Europe/Istanbul").format("MMM, DD hh:mm a");
             const yearNow = moment(Date.now()).format("YYYY");
             
