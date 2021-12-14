@@ -26,12 +26,12 @@ app.get('/', async (req, res) => {
             const country = data.sys.country;
             const humidity = data.main.humidity;
             const windDeg = data.wind.deg;
-            const lastUpd = new Date(data.dt * 1000 - (data.timezone * 1000));
             const windDirection = degreesToCardinalDirection(windDeg);
             const abrKPH = abrNumber(data.wind.speed * 3.6);
             const sunrise = moment(new Date(data.sys.sunrise * 1000)).format("LT"); 
             const sunset = moment(new Date(data.sys.sunset * 1000)).format("LT"); 
             const currTime = timezone().tz("Europe/Istanbul").format("MMM, DD hh:mm a");
+            const yearNow = moment(Date.now()).format("YYYY");
             
             
 
@@ -100,7 +100,7 @@ app.get('/', async (req, res) => {
                 sunrise: sunrise,
                 sunset: sunset,
                 currTime: currTime,
-                lastUpd: lastUpd,
+                copyright: '© '+ yearNow +', Onur Sedef. Tüm hakları saklıdır. ',
             });
         });
     } catch (err) {
